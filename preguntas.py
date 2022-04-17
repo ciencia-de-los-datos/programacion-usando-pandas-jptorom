@@ -34,7 +34,8 @@ def pregunta_02():
     4
 
     """
-    return
+    a= len(tbl0.columns)
+    return a
 
 
 def pregunta_03():
