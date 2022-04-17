@@ -120,7 +120,17 @@ def pregunta_06():
     ['A', 'B', 'C', 'D', 'E', 'F', 'G']
 
     """
-    return
+    import pandas as pd
+
+    tbl0 = pd.read_csv("tbl0.tsv", sep="\t")
+    tbl1 = pd.read_csv("tbl1.tsv", sep="\t")
+    tbl2 = pd.read_csv("tbl2.tsv", sep="\t")
+    '''Cuenta las veces que aparece cada letra y los ordena'''
+    tbl1['_c4']= tbl1['_c4'].str.upper()
+    ltempo = sorted(list(set(tbl1['_c4'])))
+    
+
+    return ltempo
 
 
 def pregunta_07():
