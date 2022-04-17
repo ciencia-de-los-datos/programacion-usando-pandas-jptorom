@@ -22,7 +22,8 @@ def pregunta_01():
     40
 
     """
-    return
+    a = len(tbl0.index)
+    return a
 
 
 def pregunta_02():
