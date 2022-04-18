@@ -256,7 +256,16 @@ def pregunta_11():
     38   38      d,e
     39   39    a,d,f
     """
-    return
+    import pandas as pd
+
+    tbl0 = pd.read_csv("tbl0.tsv", sep="\t")
+    tbl1 = pd.read_csv("tbl1.tsv", sep="\t")
+    tbl2 = pd.read_csv("tbl2.tsv", sep="\t")
+
+    tbl1 = tbl1.sort_values('_c4')
+    tbl1  = tbl1.groupby(['_c0'], as_index = False).agg({'_c4':','.join})
+    
+    return tbl1
 
 
 def pregunta_12():
