@@ -224,7 +224,18 @@ def pregunta_10():
     3   D                  1:2:3:5:5:7
     4   E  1:1:2:3:3:4:5:5:5:6:7:8:8:9
     """
-    return
+    import pandas as pd
+
+    tbl0 = pd.read_csv("tbl0.tsv", sep="\t")
+    tbl1 = pd.read_csv("tbl1.tsv", sep="\t")
+    tbl2 = pd.read_csv("tbl2.tsv", sep="\t")
+
+    tbl0['_c2']= tbl0['_c2'].apply(lambda x:str(x))
+    tbl0  = tbl0.groupby(['_c1'], as_index = False).agg({'_c2':':'.join})
+    
+    return tbl0
+
+
 
 
 def pregunta_11():
