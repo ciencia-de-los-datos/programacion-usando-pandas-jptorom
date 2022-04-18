@@ -231,8 +231,8 @@ def pregunta_10():
     tbl2 = pd.read_csv("tbl2.tsv", sep="\t")
 
     tbl0['_c2']= tbl0['_c2'].apply(lambda x:str(x))
+    tbl0 = tbl0.sort_values('_c2')
     tbl0  = tbl0.groupby(['_c1'], as_index = False).agg({'_c2':':'.join})
-    
     return tbl0
 
 
