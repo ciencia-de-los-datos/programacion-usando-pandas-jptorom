@@ -289,13 +289,14 @@ def pregunta_12():
     tbl0 = pd.read_csv("tbl0.tsv", sep="\t")
     tbl1 = pd.read_csv("tbl1.tsv", sep="\t")
     tbl2 = pd.read_csv("tbl2.tsv", sep="\t")
-    '''Cuenta las veces que aparece cada letra y los ordena'''
 
-    ### _C0 es la clave de las tablas tbl0 y tbl2
-    tbl3= pd.merge(tbl0,tbl2, sort= True)
-    Contador = tbl3.groupby('_c1')._c5b.sum()
+    tbl2 = tbl2.sort_values('_c5a')
+    tbl2['_c5b'] = tbl2['_c5b'].astype(str)
+    tbl2['_c5'] = tbl2['_c5a'] + ':' + tbl2['_c5b']
+    tbl4  = tbl2.groupby(['_c0'], as_index = False).agg({'_c5':','.join})
     
-    return Contador
+    return tbl4
+    
 def pregunta_13():
     """
     Si la columna _c0 es la clave en los archivos `tbl0.tsv` y `tbl2.tsv`, compute la
