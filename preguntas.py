@@ -284,9 +284,18 @@ def pregunta_12():
     38   38                    eee:0,fff:9,iii:2
     39   39                    ggg:3,hhh:8,jjj:5
     """
-    return
+    import pandas as pd
 
+    tbl0 = pd.read_csv("tbl0.tsv", sep="\t")
+    tbl1 = pd.read_csv("tbl1.tsv", sep="\t")
+    tbl2 = pd.read_csv("tbl2.tsv", sep="\t")
+    '''Cuenta las veces que aparece cada letra y los ordena'''
 
+    ### _C0 es la clave de las tablas tbl0 y tbl2
+    tbl3= pd.merge(tbl0,tbl2, sort= True)
+    Contador = tbl3.groupby('_c1')._c5b.sum()
+    
+    return Contador
 def pregunta_13():
     """
     Si la columna _c0 es la clave en los archivos `tbl0.tsv` y `tbl2.tsv`, compute la
