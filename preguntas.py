@@ -232,7 +232,7 @@ def pregunta_10():
 
     tbl0['_c2']= tbl0['_c2'].apply(lambda x:str(x))
     tbl0 = tbl0.sort_values('_c2')
-    tbl0  = tbl0.groupby(['_c1'], as_index = False).agg({'_c2':':'.join})
+    tbl0  = tbl0.groupby(['_c1'], as_index = False).agg({'_c2':': '.join})
     tbl2 = tbl0.rename(columns={'_c1':'_c0',
                                     '_c2':'_c1'})
     return tbl2
@@ -296,7 +296,8 @@ def pregunta_12():
     tbl4  = tbl2.groupby(['_c0'], as_index = False).agg({'_c5':','.join})
     
     return tbl4
-    
+
+
 def pregunta_13():
     """
     Si la columna _c0 es la clave en los archivos `tbl0.tsv` y `tbl2.tsv`, compute la
