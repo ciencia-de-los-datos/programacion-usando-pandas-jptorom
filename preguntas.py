@@ -261,12 +261,12 @@ def pregunta_11():
     tbl0 = pd.read_csv("tbl0.tsv", sep="\t")
     tbl1 = pd.read_csv("tbl1.tsv", sep="\t")
     tbl2 = pd.read_csv("tbl2.tsv", sep="\t")
-
-    tbl1 = tbl1.sort_values('_c4')
-    tbl1  = tbl1.groupby(['_c0'], as_index = False).agg({'_c4':','.join})
-    
+    dt=pd.DataFrame(tbl0)
+    dt["_c2"]=dt["_c2"].apply(lambda x: str(x))
+    dt=dt.sort_values(by=["_c2"])
+    dt=dt.groupby(["_c1"]).agg({"_c2": ":".join})
         
-    return tbl1
+    return dt
 
 
 def pregunta_12():
